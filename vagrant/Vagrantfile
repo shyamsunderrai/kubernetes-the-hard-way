@@ -14,6 +14,8 @@ LB_IP_START = 30
 $script = <<-SCRIPT
 rm /etc/machine-id
 systemd-machine-id-setup
+sudo apt update -y
+sudo apt install network-manager
 SCRIPT
 
 
