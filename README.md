@@ -1,6 +1,7 @@
-> This tutorial is a modified version of the original developed by [Kelsey Hightower](https://github.com/kelseyhightower/kubernetes-the-hard-way).
 
-# Kubernetes The Hard Way On VirtualBox
+> Tutorial/setup is forked from mmumshad munnambeths github repo, to run on parallels
+
+# Kubernetes The Hard Way On Parallels
 
 This tutorial walks you through setting up Kubernetes the hard way on a local machine using VirtualBox.
 This guide is not for people looking for a fully automated command to bring up a Kubernetes cluster.
