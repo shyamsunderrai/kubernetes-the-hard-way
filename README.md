@@ -1,16 +1,19 @@
 
-> Tutorial/setup is forked from mmumshad munnambeths github repo, to run on parallels
+> Tutorial/setup is forked from mmumshad munnambeths github repo, to run on parallels (M1 processor)
 
-# Kubernetes The Hard Way On Parallels
+# Kubernetes The Hard Way On Parallels (M1 processor)
+#### Note, once you get to the "vagrant up" part and perform "vagrant ssh-config"
+#### and do not see the public IP address against HostName
+#### Simply perform "vagrant reload <machine-name>" 
 
-This tutorial walks you through setting up Kubernetes the hard way on a local machine using VirtualBox.
+This tutorial walks you through setting up Kubernetes the hard way on a local machine using Parallels
 This guide is not for people looking for a fully automated command to bring up a Kubernetes cluster.
 If that's you then check out [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine), or the [Getting Started Guides](http://kubernetes.io/docs/getting-started-guides/).
 
 Kubernetes The Hard Way is optimized for learning, which means taking the long route to ensure you understand each task required to bootstrap a Kubernetes cluster.
 
 This tutorial is a modified version of the original developed by [Kelsey Hightower](https://github.com/kelseyhightower/kubernetes-the-hard-way).
-While the original one uses GCP as the platform to deploy kubernetes,  we use VirtualBox and Vagrant to deploy a cluster on a local machine. If you prefer the cloud version, refer to the original one [here](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+While the original one uses GCP as the platform to deploy kubernetes,  we use Parallels and Vagrant to deploy a cluster on a local machine. If you prefer the cloud version, refer to the original one [here](https://github.com/kelseyhightower/kubernetes-the-hard-way)
 
 Another difference is that we use Docker instead of containerd. There are a few other differences to the original and they are documented [here](docs/differences-to-original.md)
 
