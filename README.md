@@ -2,9 +2,7 @@
 > Tutorial/setup is forked from mmumshad munnambeths github repo, to run on parallels (M1 processor)
 
 # Kubernetes The Hard Way On Parallels (M1 processor)
-#### Note, once you get to the "vagrant up" part and perform "vagrant ssh-config"
-#### and do not see the public IP address against HostName
-#### Simply perform "vagrant reload <machine-name>" 
+#### Note, once you get to the "vagrant up" part and perform "vagrant ssh-config" and do not see the public IP address against HostName Simply perform "vagrant reload <machine-name>" 
 
 This tutorial walks you through setting up Kubernetes the hard way on a local machine using Parallels
 This guide is not for people looking for a fully automated command to bring up a Kubernetes cluster.
