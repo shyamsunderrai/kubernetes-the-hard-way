@@ -49,7 +49,7 @@ sudo mv kubectl /usr/local/bin/
 
 ### Verification
 
-Verify `kubectl` version 1.13.0 or higher is installed:
+Verify `kubectl` version v1.24.0 or higher is installed:
 
 ```
 kubectl version --client

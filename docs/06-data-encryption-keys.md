@@ -41,8 +41,10 @@ done
 ```
 
 Move `encryption-config.yaml` encryption config file to appropriate directory.
+NOTE: I did not find /var/lib/kubernetes in the original documentation, hence I had to create it on both master-1 and master-2
 
 ```
+sudo mkdir -p /var/lib/kubernetes && sudo chown -R vagrant:vagrant /var/lib/kubernetes
 for instance in master-1 master-2; do
   ssh ${instance} sudo mv encryption-config.yaml /var/lib/kubernetes/
 done
