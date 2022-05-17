@@ -15,7 +15,10 @@ $script = <<-SCRIPT
 rm /etc/machine-id
 systemd-machine-id-setup
 sudo apt update -y
-sudo apt install network-manager
+sudo apt install network-manager -y
+sudo install openssh-server -y
+sudo systemctl enable ssh 
+sudo systemctl start ssh
 SCRIPT
 
 

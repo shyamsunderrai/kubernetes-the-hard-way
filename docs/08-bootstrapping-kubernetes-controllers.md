@@ -50,7 +50,7 @@ Install the Kubernetes binaries:
   sudo cp ca.crt ca.key kube-apiserver.crt kube-apiserver.key \
     service-account.key service-account.crt \
     etcd-server.key etcd-server.crt \
-    encryption-config.yaml /var/lib/kubernetes/
+    /var/lib/kubernetes/
 }
 ```
 
@@ -75,37 +75,37 @@ Description=Kubernetes API Server
 Documentation=https://github.com/kubernetes/kubernetes
 
 [Service]
-ExecStart=/usr/local/bin/kube-apiserver \\
-  --advertise-address=${INTERNAL_IP} \\
-  --allow-privileged=true \\
-  --apiserver-count=2 \\
-  --audit-log-maxage=30 \\
-  --audit-log-maxbackup=3 \\
-  --audit-log-maxsize=100 \\
-  --audit-log-path=/var/log/audit.log \\
-  --authorization-mode=Node,RBAC \\
-  --bind-address=0.0.0.0 \\
-  --client-ca-file=/var/lib/kubernetes/ca.crt \\
-  --enable-admission-plugins=NodeRestriction,ServiceAccount \\
-  --enable-swagger-ui=true \\
-  --enable-bootstrap-token-auth=true \\
-  --etcd-cafile=/var/lib/kubernetes/ca.crt \\
-  --etcd-certfile=/var/lib/kubernetes/etcd-server.crt \\
-  --etcd-keyfile=/var/lib/kubernetes/etcd-server.key \\
-  --etcd-servers=https://192.168.5.11:2379,https://192.168.5.12:2379 \\
-  --event-ttl=1h \\
-  --encryption-provider-config=/var/lib/kubernetes/encryption-config.yaml \\
-  --kubelet-certificate-authority=/var/lib/kubernetes/ca.crt \\
-  --kubelet-client-certificate=/var/lib/kubernetes/kube-apiserver.crt \\
-  --kubelet-client-key=/var/lib/kubernetes/kube-apiserver.key \\
-  --kubelet-https=true \\
-  --runtime-config=api/all=true \\
-  --service-account-key-file=/var/lib/kubernetes/service-account.crt \\
-  --service-cluster-ip-range=10.96.0.0/24 \\
-  --service-node-port-range=30000-32767 \\
-  --tls-cert-file=/var/lib/kubernetes/kube-apiserver.crt \\
-  --tls-private-key-file=/var/lib/kubernetes/kube-apiserver.key \\
-  --v=2
+ExecStart=/usr/local/bin/kube-apiserver \
+  --advertise-address=${INTERNAL_IP} \
+  --allow-privileged=true \
+  --apiserver-count=2 \
+  --audit-log-maxage=30 \
+  --audit-log-maxbackup=3 \
+  --audit-log-maxsize=100 \
+  --audit-log-path=/var/log/audit.log \
+  --authorization-mode=Node,RBAC \
+  --bind-address=0.0.0.0 \
+  --client-ca-file=/var/lib/kubernetes/ca.crt \
+  --enable-admission-plugins=NodeRestriction,ServiceAccount \
+  --enable-bootstrap-token-auth=true \
+  --etcd-cafile=/var/lib/kubernetes/ca.crt \
+  --etcd-certfile=/var/lib/kubernetes/etcd-server.crt \
+  --etcd-keyfile=/var/lib/kubernetes/etcd-server.key \
+  --etcd-servers=https://192.168.5.11:2379,https://192.168.5.12:2379 \
+  --event-ttl=1h \
+  --encryption-provider-config=/var/lib/kubernetes/encryption-config.yaml \
+  --kubelet-certificate-authority=/var/lib/kubernetes/ca.crt \
+  --kubelet-client-certificate=/var/lib/kubernetes/kube-apiserver.crt \
+  --kubelet-client-key=/var/lib/kubernetes/kube-apiserver.key \
+  --runtime-config=api/all=true \
+  --service-account-key-file=/var/lib/kubernetes/service-account.crt \
+  --service-cluster-ip-range=10.96.0.0/24 \
+  --service-node-port-range=30000-32767 \
+  --tls-cert-file=/var/lib/kubernetes/kube-apiserver.crt \
+  --tls-private-key-file=/var/lib/kubernetes/kube-apiserver.key \
+  --v=2 \
+  --service-account-signing-key-file=/var/lib/kubernetes/service-account.key \
+  --service-account-issuer=https://kubernetes.default.svc.cluster.local
 Restart=on-failure
 RestartSec=5
 
@@ -132,7 +132,6 @@ Documentation=https://github.com/kubernetes/kubernetes
 
 [Service]
 ExecStart=/usr/local/bin/kube-controller-manager \\
-  --address=0.0.0.0 \\
   --cluster-cidr=192.168.5.0/24 \\
   --cluster-name=kubernetes \\
   --cluster-signing-cert-file=/var/lib/kubernetes/ca.crt \\
@@ -171,7 +170,6 @@ Documentation=https://github.com/kubernetes/kubernetes
 [Service]
 ExecStart=/usr/local/bin/kube-scheduler \\
   --kubeconfig=/var/lib/kubernetes/kube-scheduler.kubeconfig \\
-  --address=127.0.0.1 \\
   --leader-elect=true \\
   --v=2
 Restart=on-failure
@@ -258,14 +256,14 @@ curl  https://192.168.5.30:6443/version -k
 ```
 {
   "major": "1",
-  "minor": "13",
-  "gitVersion": "v1.13.0",
-  "gitCommit": "ddf47ac13c1a9483ea035a79cd7c10005ff21a6d",
+  "minor": "24",
+  "gitVersion": "v1.24.0",
+  "gitCommit": "4ce5a8954017644c5420bae81d72b09b735c21f0",
   "gitTreeState": "clean",
-  "buildDate": "2018-12-03T20:56:12Z",
-  "goVersion": "go1.11.2",
+  "buildDate": "2022-05-03T13:38:19Z",
+  "goVersion": "go1.18.1",
   "compiler": "gc",
-  "platform": "linux/amd64"
+  "platform": "linux/arm64"
 }
 ```
 
